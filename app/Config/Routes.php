@@ -147,17 +147,16 @@ $routes->group('admin', [], function($routes) {
 	
 	$routes->group('t31-jurnalds', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
 		$routes->get('', 'T31Jurnalds::index', ['as' => 'jurnaldList']);
+		$routes->get('index', 'T31Jurnalds::index', ['as' => 'jurnaldIndex']);
+		$routes->get('list', 'T31Jurnalds::index', ['as' => 'jurnaldList2']);
 		$routes->get('add', 'T31Jurnalds::add', ['as' => 'newJurnald']);
 		$routes->post('add', 'T31Jurnalds::add', ['as' => 'createJurnald']);
-		$routes->post('create', 'T31Jurnalds::create', ['as' => 'ajaxCreateJurnald']);
-		$routes->put('(:num)/update', 'T31Jurnalds::update/$1', ['as' => 'ajaxUpdateJurnald']);
-		$routes->post('(:num)/edit', 'T31Jurnalds::edit/$1', ['as' => 'updateJurnald']);
-		$routes->post('datatable', 'T31Jurnalds::datatable', ['as' => 'dataTableOfJurnald']);
+		$routes->get('edit/(:num)', 'T31Jurnalds::edit/$1', ['as' => 'editJurnald']);
+		$routes->post('edit/(:num)', 'T31Jurnalds::edit/$1', ['as' => 'updateJurnald']);
+		$routes->get('delete/(:num)', 'T31Jurnalds::delete/$1', ['as' => 'deleteJurnald']);
 		$routes->post('allmenuitems', 'T31Jurnalds::allItemsSelect', ['as' => 'select2ItemsOfJurnald']);
 		$routes->post('menuitems', 'T31Jurnalds::menuItems', ['as' => 'menuItemsOfJurnald']);
 	});
-	$routes->resource('t31-jurnalds', ['namespace'  => 'App\Controllers\Admin', 'controller' => 'T31Jurnalds', 'except' => 'show,new,create,update']);
-
 	
 	$routes->group('t32-jurnal-lamas', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
 		$routes->get('', 'T32JurnalLamas::index', ['as' => 'jurnalLamaList']);

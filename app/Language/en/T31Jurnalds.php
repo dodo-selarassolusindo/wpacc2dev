@@ -19,6 +19,12 @@ return [
 
 			],
 
+			'jurnal' =>  [
+				'integer' => 'The {field} field must contain an integer.',
+				'required' => 'The {field} field is required.',
+
+			],
+
 			'kredit' =>  [
 				'decimal' => 'The {field} field must contain a decimal number.',
 				'required' => 'The {field} field is required.',
