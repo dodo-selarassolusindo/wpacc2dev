@@ -14,25 +14,23 @@ class UserModel extends \Myth\Auth\Models\UserModel
 
     const SORTABLE = [
         1 => "t1.id",
-        2 => "t1.uuid",
-        3 => "t1.email",
-        4 => "t1.username",
-        5 => "t1.first_name",
-        6 => "t1.last_name",
-        7 => "t1.primary_phone",
-        8 => "t1.picture",
-        9 => "t1.reset_at",
-        10 => "t1.reset_expires",
-        11 => "t1.status",
-        12 => "t1.status_message",
-        13 => "t1.active",
-        14 => "t1.force_pass_reset",
-        15 => "t1.created_at",
-        16 => "t1.updated_at",
+        2 => "t1.email",
+        3 => "t1.username",
+        4 => "t1.first_name",
+        5 => "t1.last_name",
+        6 => "t1.primary_phone",
+        7 => "t1.picture",
+        8 => "t1.reset_at",
+        9 => "t1.reset_expires",
+        10 => "t1.status",
+        11 => "t1.status_message",
+        12 => "t1.active",
+        13 => "t1.force_pass_reset",
+        14 => "t1.created_at",
+        15 => "t1.updated_at",
     ];
 
     protected $allowedFields = [
-        "uuid",
         "email",
         "username",
         "first_name",
@@ -67,7 +65,7 @@ class UserModel extends \Myth\Auth\Models\UserModel
         $builder = $this->db
             ->table($this->table . " t1")
             ->select(
-                "t1.id AS id, t1.uuid AS uuid, t1.email AS email, t1.username AS username, t1.first_name AS first_name, t1.last_name AS last_name, t1.primary_phone AS primary_phone, t1.picture AS picture, t1.reset_at AS reset_at, t1.reset_expires AS reset_expires, t1.status AS status, t1.status_message AS status_message, t1.active AS active, t1.force_pass_reset AS force_pass_reset, t1.created_at AS created_at, t1.updated_at AS updated_at"
+                "t1.id AS id, t1.email AS email, t1.username AS username, t1.first_name AS first_name, t1.last_name AS last_name, t1.primary_phone AS primary_phone, t1.picture AS picture, t1.reset_at AS reset_at, t1.reset_expires AS reset_expires, t1.status AS status, t1.status_message AS status_message, t1.active AS active, t1.force_pass_reset AS force_pass_reset, t1.created_at AS created_at, t1.updated_at AS updated_at"
             );
 
         return empty($search)
@@ -75,7 +73,6 @@ class UserModel extends \Myth\Auth\Models\UserModel
             : $builder
                 ->groupStart()
                 ->like("t1.id", $search)
-                ->orLike("t1.uuid", $search)
                 ->orLike("t1.email", $search)
                 ->orLike("t1.username", $search)
                 ->orLike("t1.first_name", $search)
@@ -89,7 +86,6 @@ class UserModel extends \Myth\Auth\Models\UserModel
                 ->orLike("t1.created_at", $search)
                 ->orLike("t1.updated_at", $search)
                 ->orLike("t1.id", $search)
-                ->orLike("t1.uuid", $search)
                 ->orLike("t1.email", $search)
                 ->orLike("t1.username", $search)
                 ->orLike("t1.first_name", $search)

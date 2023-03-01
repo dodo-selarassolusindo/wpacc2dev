@@ -13,8 +13,9 @@ class T00GrupAkunModel extends \App\Models\GoBaseModel
     protected $useAutoIncrement = true;
 
     const SORTABLE = [
-        1 => "t1.kode",
-        2 => "t1.nama",
+        1 => "t1.id",
+        2 => "t1.kode",
+        3 => "t1.nama",
     ];
 
     protected $allowedFields = ["kode", "nama"];
@@ -53,14 +54,16 @@ class T00GrupAkunModel extends \App\Models\GoBaseModel
      */
     public function getResource(string $search = "")
     {
-        $builder = $this->db->table($this->table . " t1")->select("t1.kode AS kode, t1.nama AS nama");
+        $builder = $this->db->table($this->table . " t1")->select("t1.id AS id, t1.kode AS kode, t1.nama AS nama");
 
         return empty($search)
             ? $builder
             : $builder
                 ->groupStart()
-                ->like("t1.kode", $search)
+                ->like("t1.id", $search)
+                ->orLike("t1.kode", $search)
                 ->orLike("t1.nama", $search)
+                ->orLike("t1.id", $search)
                 ->orLike("t1.kode", $search)
                 ->orLike("t1.nama", $search)
                 ->groupEnd();

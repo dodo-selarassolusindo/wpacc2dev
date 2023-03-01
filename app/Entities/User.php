@@ -7,7 +7,6 @@ class User extends \Myth\Auth\Entities\User
 {
     protected $attributes = [
         "id" => null,
-        "uuid" => null,
         "email" => null,
         "username" => null,
         "first_name" => null,

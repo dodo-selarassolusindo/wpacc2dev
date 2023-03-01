@@ -36,7 +36,6 @@ class Users extends \App\Controllers\GoBaseResourceController {
 			'status' => 'trim|permit_empty|max_length[255]',
 			'status_message' => 'trim|permit_empty|max_length[255]',
 			'username' => 'trim|permit_empty|required|alpha_numeric_punct|min_length[3]|max_length[30]|max_length[30]',
-			'uuid' => 'trim|permit_empty|max_length[36]',
 		];
 
     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger) {

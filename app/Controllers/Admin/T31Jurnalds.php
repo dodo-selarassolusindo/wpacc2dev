@@ -7,9 +7,9 @@ use App\Models\Collection;
 
 use App\Entities\Admin\T31Jurnald;
 
-use App\Models\Admin\T01AkunModel;
-
 use App\Models\Admin\T31JurnaldModel;
+
+use App\Models\Admin\T01AkunModel;
 
 class T31Jurnalds extends \App\Controllers\GoBaseResourceController { 
 

@@ -28,7 +28,6 @@
 							<tr>
 								<th class="text-nowrap"><?= lang('Basic.global.Action') ?></th>
 								<th><?=lang('Users.id')?></th>
-								<th><?= lang('Users.uuid') ?></th>
 								<th><?= lang('Users.email') ?></th>
 								<th><?= lang('Users.username') ?></th>
 								<th><?= lang('Users.firstName') ?></th>
@@ -111,7 +110,6 @@
                 columns : [
                     { 'data': actionBtns },
 					{ 'data': 'id' },
-					{ 'data': 'uuid' },
 					{ 'data': 'email' },
 					{ 'data': 'username' },
 					{ 'data': 'first_name' },
@@ -132,13 +130,13 @@
 
     
         theTable.on( 'draw.dt', function () {
-                const boolCols = [13, 14];
+                const boolCols = [12, 13];
             for (let coln of boolCols) {
                 theTable.column(coln, { page: 'current' }).nodes().each( function (cell, i) {
                     cell.innerHTML = cell.innerHTML == '1' ? '<i class="text-success fas fa-check"></i>' : '';
                 });
             }
-                const dateCols = [9, 10, 15, 16];
+                const dateCols = [8, 9, 14, 15];
             const shortDateFormat = '<?= convertPhpDateToMomentFormat('d-m-Y')?>';
             const dateTimeFormat = '<?= convertPhpDateToMomentFormat('d-m-Y H:i')?>';
             

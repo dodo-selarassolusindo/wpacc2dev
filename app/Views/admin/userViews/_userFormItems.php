@@ -2,18 +2,6 @@
 			<div class="col-md-12 px-4">
 
 				<div class="form-group row">
-					<?=form_label(lang('Users.uuid'), 'uuid', ['class'=>'col-md-4 col-form-label']); ?>
-					<div class="col-md-8">
-						<?=form_input(['name' => 'uuid', 'type' => 'text', 'id' => 'uuid', 'value' => old('uuid', $user->uuid) , 'class' => 'form-control'.(($ferr = session('formErrors.uuid')) ? ' is-invalid' : ''), 'maxlength' => 36]);  ?>
-						<?php if ( $ferr ) { ?>
-							<div class="invalid-feedback">
-								<?= $ferr ?>
-							</div>
-						<?php } ?>
-					</div><!--//.col -->
-				</div><!--//.form-group -->
-
-				<div class="form-group row">
 					<?=form_label(lang('Users.email').'*', 'email', ['class'=>'col-md-4 col-form-label']); ?>
 					<div class="col-md-8">
 						<?=form_input(['name' => 'email', 'type' => 'email', 'id' => 'email', 'value' => old('email', $user->email) , 'class' => 'form-control'.(($ferr = session('formErrors.email')) ? ' is-invalid' : ''), 'maxlength' => 255, 'required' => true ]);  ?>
