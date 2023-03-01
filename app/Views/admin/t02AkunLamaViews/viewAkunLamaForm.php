@@ -14,7 +14,7 @@
 				<?=view('admin/t02AkunLamaViews/_akunLamaFormItems') ?>
 			</div><!-- /.card-body -->
 			<div class="card-footer">
-				<?=anchor(route_to('akunLamaIndex'), lang('Basic.global.Cancel'), ['class'=>'btn btn-default float-left']); ?>
+				<?=anchor(route_to('akunLamaList2'), lang('Basic.global.Cancel'), ['class'=>'btn btn-default float-left']); ?>
 				<?=form_submit('save', lang('Basic.global.Save'), ['class'=>'btn btn-primary float-right']) ?>
 			</div><!-- /.card-footer -->
 			<?=form_close() ?>

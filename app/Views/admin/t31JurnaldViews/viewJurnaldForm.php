@@ -14,7 +14,7 @@
 				<?=view('admin/t31JurnaldViews/_jurnaldFormItems') ?>
 			</div><!-- /.card-body -->
 			<div class="card-footer">
-				<?=anchor(route_to('jurnaldList2'), lang('Basic.global.Cancel'), ['class'=>'btn btn-default float-left']); ?>
+				<?=anchor(route_to('jurnaldList'), lang('Basic.global.Cancel'), ['class'=>'btn btn-default float-left']); ?>
 				<?=form_submit('save', lang('Basic.global.Save'), ['class'=>'btn btn-primary float-right']) ?>
 			</div><!-- /.card-footer -->
 			<?=form_close() ?>

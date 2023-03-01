@@ -90,7 +90,7 @@ class Basics extends BaseConfig {
 		'footer' => [
 		'fixed'      => false,
 		'organization' => 'Selaras Solusindo',
-		'orglink' => 'selarassolusindo.com',
+		'orglink' => 'https://selarassolusindo.com',
 		],
 	];
 

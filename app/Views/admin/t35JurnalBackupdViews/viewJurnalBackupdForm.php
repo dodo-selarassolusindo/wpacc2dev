@@ -14,7 +14,7 @@
 				<?=view('admin/t35JurnalBackupdViews/_jurnalBackupdFormItems') ?>
 			</div><!-- /.card-body -->
 			<div class="card-footer">
-				<?=anchor(route_to('jurnalBackupdList'), lang('Basic.global.Cancel'), ['class'=>'btn btn-default float-left']); ?>
+				<?=anchor(route_to('jurnalBackupdList2'), lang('Basic.global.Cancel'), ['class'=>'btn btn-default float-left']); ?>
 				<?=form_submit('save', lang('Basic.global.Save'), ['class'=>'btn btn-primary float-right']) ?>
 			</div><!-- /.card-footer -->
 			<?=form_close() ?>

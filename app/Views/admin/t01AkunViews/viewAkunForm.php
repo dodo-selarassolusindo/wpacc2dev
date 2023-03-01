@@ -15,7 +15,7 @@
 				<?=view('admin/t01AkunViews/_akunFormItems') ?>
 			</div><!-- /.card-body -->
 			<div class="card-footer">
-				<?=anchor(route_to('akunList'), lang('Basic.global.Cancel'), ['class'=>'btn btn-secondary float-left']); ?>
+				<?=anchor(route_to('akunIndex'), lang('Basic.global.Cancel'), ['class'=>'btn btn-secondary float-left']); ?>
 				<?=form_submit('save', lang('Basic.global.Save'), ['class'=>'btn btn-primary float-right']) ?>
 			</div><!-- /.card-footer -->
 			<?=form_close() ?>
