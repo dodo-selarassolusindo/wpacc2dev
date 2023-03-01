@@ -14,7 +14,7 @@
 					<p><?=lang('AuthGroups.group') ?></p>
 				</div>
 				<div class="icon">
-					<i class="far fa-question-circle"></i>
+					<i class="fas fa-star-of-life"></i>
 				</div>
 				<?= anchor(route_to('groupList'), lang('Basic.global.MoreInfo').'  <i class="fas fa-arrow-circle-right"></i>', ['class'=>'small-box-footer']); ?>
 
@@ -27,7 +27,7 @@
 					<p><?=lang('T01Akuns.akun') ?></p>
 				</div>
 				<div class="icon">
-					<i class="far fa-question-circle"></i>
+					<i class="far fa-bookmark"></i>
 				</div>
 				<?= anchor(route_to('akunList'), lang('Basic.global.MoreInfo').'  <i class="fas fa-arrow-circle-right"></i>', ['class'=>'small-box-footer']); ?>
 
@@ -42,20 +42,20 @@
 					<p><?=lang('Users.user') ?></p>
 				</div>
 				<div class="icon">
-					<i class="far fa-question-circle"></i>
+					<i class="fas fa-chart-bar"></i>
 				</div>
 				<?= anchor(route_to('userList'), lang('Basic.global.MoreInfo').'  <i class="fas fa-arrow-circle-right"></i>', ['class'=>'small-box-footer']); ?>
 
 			</div><!-- /.small-box -->
 
 
-			<div class="small-box bg-danger">
+			<div class="small-box bg-warning">
 				<div class="inner">
 					<h3><?= $totalNrOfAkunLama; ?></h3>
 					<p><?=lang('T02AkunLamas.akunLama') ?></p>
 				</div>
 				<div class="icon">
-					<i class="fas fa-star-of-life"></i>
+					<i class="far fa-square"></i>
 				</div>
 				<?= anchor(route_to('akunLamaList'), lang('Basic.global.MoreInfo').'  <i class="fas fa-arrow-circle-right"></i>', ['class'=>'small-box-footer']); ?>
 
@@ -70,20 +70,20 @@
 					<p><?=lang('AuthPermissions.permission') ?></p>
 				</div>
 				<div class="icon">
-					<i class="far fa-bookmark"></i>
+					<i class="fas fa-globe"></i>
 				</div>
 				<?= anchor(route_to('permissionList'), lang('Basic.global.MoreInfo').'  <i class="fas fa-arrow-circle-right"></i>', ['class'=>'small-box-footer']); ?>
 
 			</div><!-- /.small-box -->
 
 
-			<div class="small-box bg-primary">
+			<div class="small-box bg-danger">
 				<div class="inner">
 					<h3><?= $totalNrOfAkunBackup; ?></h3>
 					<p><?=lang('T03AkunBackups.akunBackup') ?></p>
 				</div>
 				<div class="icon">
-					<i class="far fa-bookmark"></i>
+					<i class="fas fa-star-of-life"></i>
 				</div>
 				<?= anchor(route_to('akunBackupList'), lang('Basic.global.MoreInfo').'  <i class="fas fa-arrow-circle-right"></i>', ['class'=>'small-box-footer']); ?>
 
@@ -105,7 +105,7 @@
 			</div><!-- /.small-box -->
 
 
-			<div class="small-box bg-primary">
+			<div class="small-box bg-info">
 				<div class="inner">
 					<h3><?= $totalNrOfJurnal; ?></h3>
 					<p><?=lang('T30Jurnals.jurnal') ?></p>
