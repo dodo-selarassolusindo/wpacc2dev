@@ -24,7 +24,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL = 'https://wpacc2dev2.selarassolusindo.com/public/';
+    public $baseURL = 'https://wpacc2.selarassolusindo.com/public/';
 
     /**
      * --------------------------------------------------------------------------
