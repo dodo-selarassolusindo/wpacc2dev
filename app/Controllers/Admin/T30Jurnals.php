@@ -51,7 +51,7 @@ class T30Jurnals extends \App\Controllers\GoBaseResourceController {
                 'pageSubTitle' => lang('Basic.global.ManageAllRecords', [lang('T30Jurnals.jurnal')]),
                 't30Jurnal' => new T30Jurnal(),
                 'usingServerSideDataTable' => true,
-
+                'nomor' => $this->model->getNomorJurnal(date('Y-m-d')),
             ];
 
         $this->viewData['t31Jurnald'] = isset($sanitizedData) ? new T31Jurnald($sanitizedData) : new T31Jurnald();

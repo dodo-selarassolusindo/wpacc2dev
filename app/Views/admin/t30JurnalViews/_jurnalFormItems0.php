@@ -4,7 +4,7 @@
 				<div class="form-group row">
 					<?=form_label(lang('T30Jurnals.nomor').'*', 'nomor', ['class'=>'col-md-4 col-form-label']); ?>
 					<div class="col-md-8">
-						<?=form_input(['name' => 'nomor', 'type' => 'text', 'id' => 'nomor', 'value' => old('nomor', $t30Jurnal->nomor) , 'class' => 'form-control'.(($ferr = session('formErrors.nomor')) ? ' is-invalid' : ''), 'maxlength' => 8, 'required' => true ]);  ?>
+						<?=form_input(['name' => 'nomor', 'type' => 'text', 'id' => 'nomor', 'value' => old('nomor', $t30Jurnal->nomor) , 'class' => 'form-control'.(($ferr = session('formErrors.nomor')) ? ' is-invalid' : ''), 'maxlength' => 8, 'required' => true, 'readonly' => true ]);  ?>
 						<?php if ( $ferr ) { ?>
 							<div class="invalid-feedback">
 								<?= $ferr ?>
