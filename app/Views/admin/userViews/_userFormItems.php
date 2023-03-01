@@ -145,11 +145,6 @@
 					<?=form_label(lang('Basic.global.Permissions'), 'permissions', ['class'=>'col-md-4 col-form-label']); ?>
 					<div class="col-md-8">
 						<?=form_multiselect('permissions[]', $permissions, old('permissions', $permissionsOfUser ), ['id' => 'permissions', 'class' => 'form-control select2bs', 'style'=>'width: 100%;']) ?>
-						<?php if ( $ferr ) { ?>
-						    <div class="invalid-feedback">
-						        <?= $ferr ?>
-						    </div>
-						<?php } ?>
 					</div><!--//.col -->
 				</div><!--//.form-group -->
 
@@ -157,11 +152,6 @@
 					<?=form_label(lang('Basic.global.Groups'), 'groups', ['class'=>'col-md-4 col-form-label']); ?>
 					<div class="col-md-8">
 						<?=form_multiselect('groups[]', $groups, old('groups', $groupsOfUser ), ['id' => 'groups', 'class' => 'form-control select2bs', 'style'=>'width: 100%;']) ?>
-						<?php if ( $ferr ) { ?>
-						    <div class="invalid-feedback">
-						        <?= $ferr ?>
-						    </div>
-						<?php } ?>
 					</div><!--//.col -->
 				</div><!--//.form-group -->
 			</div><!--//.col -->

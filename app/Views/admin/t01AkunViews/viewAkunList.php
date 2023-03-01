@@ -1,5 +1,5 @@
-<?=$this->include('Themes/_commonPartialsBs/datatables') ?>
 <?=$this->include('Themes/_commonPartialsBs/select2bs') ?>
+<?=$this->include('Themes/_commonPartialsBs/datatables') ?>
 <?=$this->include('Themes/_commonPartialsBs/sweetalert') ?>
 <?=$this->extend('Themes/'.config('Basics')->theme['name'].'/AdminLayout/defaultLayout') ?>
 <?=$this->section('content');  ?>

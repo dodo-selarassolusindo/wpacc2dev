@@ -10,7 +10,7 @@
             <div class="modal-body">
                 <form id="jurnalForm">
 
-                    <?= view("admin/t30JurnalViews/_jurnalFormItems") ?>
+    				<?= view("admin/t30JurnalViews/_jurnalFormItems") ?>
                     <?= csrf_field() ?>
 
                     <input type="hidden" name="form_action" id="formAction">
