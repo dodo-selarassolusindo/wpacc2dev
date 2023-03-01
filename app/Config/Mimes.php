@@ -20,8 +20,10 @@ class Mimes
 {
     /**
      * Map of extensions to mime types.
+     *
+     * @var array
      */
-    public static array $mimes = [
+    public static $mimes = [
         'hqx' => [
             'application/mac-binhex40',
             'application/mac-binhex',

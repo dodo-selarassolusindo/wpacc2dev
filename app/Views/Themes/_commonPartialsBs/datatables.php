@@ -159,7 +159,7 @@
             "scrollX": true,
             "stateSave": true,
             "language": {
-                url: "//cdn.datatables.net/plug-ins/1.10.25/i18n/<?= config('Basics')->languages[$currentLocale] ?? config('Basics')->i18n ?>.json"
+                url: "/assets/dt/<?= config('Basics')->languages[$currentLocale] ?? config('Basics')->i18n ?>.json"
             },
             "columnDefs": [
                 {

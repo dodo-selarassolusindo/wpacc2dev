@@ -33,7 +33,7 @@ class Toolbar extends BaseConfig
      *
      * @var string[]
      */
-    public array $collectors = [
+    public $collectors = [
         Timers::class,
         Database::class,
         Logs::class,
@@ -52,8 +52,10 @@ class Toolbar extends BaseConfig
      *
      * If set to false var data from the views will not be colleted. Useful to
      * avoid high memory usage when there are lots of data passed to the view.
+     *
+     * @var bool
      */
-    public bool $collectVarData = true;
+    public $collectVarData = true;
 
     /**
      * --------------------------------------------------------------------------
@@ -63,8 +65,10 @@ class Toolbar extends BaseConfig
      * `$maxHistory` sets a limit on the number of past requests that are stored,
      * helping to conserve file space used to store them. You can set it to
      * 0 (zero) to not have any history stored, or -1 for unlimited history.
+     *
+     * @var int
      */
-    public int $maxHistory = 20;
+    public $maxHistory = 20;
 
     /**
      * --------------------------------------------------------------------------
@@ -73,8 +77,10 @@ class Toolbar extends BaseConfig
      *
      * The full path to the the views that are used by the toolbar.
      * This MUST have a trailing slash.
+     *
+     * @var string
      */
-    public string $viewsPath = SYSTEMPATH . 'Debug/Toolbar/Views/';
+    public $viewsPath = SYSTEMPATH . 'Debug/Toolbar/Views/';
 
     /**
      * --------------------------------------------------------------------------
@@ -87,6 +93,8 @@ class Toolbar extends BaseConfig
      * with hundreds of queries.
      *
      * `$maxQueries` defines the maximum amount of queries that will be stored.
+     *
+     * @var int
      */
-    public int $maxQueries = 100;
+    public $maxQueries = 100;
 }

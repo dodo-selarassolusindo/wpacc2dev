@@ -14,7 +14,7 @@
 				<?=view('admin/t33JurnalLamadViews/_jurnalLamadFormItems') ?>
 			</div><!-- /.card-body -->
 			<div class="card-footer">
-				<?=anchor(route_to('jurnalLamadList'), lang('Basic.global.Cancel'), ['class'=>'btn btn-default float-left']); ?>
+				<?=anchor(route_to('jurnalLamadIndex'), lang('Basic.global.Cancel'), ['class'=>'btn btn-default float-left']); ?>
 				<?=form_submit('save', lang('Basic.global.Save'), ['class'=>'btn btn-primary float-right']) ?>
 			</div><!-- /.card-footer -->
 			<?=form_close() ?>

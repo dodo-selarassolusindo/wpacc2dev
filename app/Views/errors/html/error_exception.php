@@ -6,11 +6,11 @@
     <meta name="robots" content="noindex">
 
     <title><?= esc($title) ?></title>
-    <style>
+    <style type="text/css">
         <?= preg_replace('#[\r\n\t ]+#', ' ', file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'debug.css')) ?>
     </style>
 
-    <script>
+    <script type="text/javascript">
         <?= file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'debug.js') ?>
     </script>
 </head>

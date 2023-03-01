@@ -21,22 +21,10 @@ class App extends BaseConfig
      * and path to your installation. However, you should always configure this
      * explicitly and never rely on auto-guessing, especially in production
      * environments.
-     */
-    public string $baseURL = 'https://wpacc2.selarassolusindo.com/public/';
-
-    /**
-     * Allowed Hostnames in the Site URL other than the hostname in the baseURL.
-     * If you want to accept multiple Hostnames, set this.
      *
-     * E.g. When your site URL ($baseURL) is 'http://example.com/', and your site
-     *      also accepts 'http://media.example.com/' and
-     *      'http://accounts.example.com/':
-     *          ['media.example.com', 'accounts.example.com']
-     *
-     * @var string[]
-     * @phpstan-var list<string>
+     * @var string
      */
-    public array $allowedHostnames = [];
+    public $baseURL = 'https://wpacc2dev2.selarassolusindo.com/public/';
 
     /**
      * --------------------------------------------------------------------------
@@ -46,8 +34,10 @@ class App extends BaseConfig
      * Typically this will be your index.php file, unless you've renamed it to
      * something else. If you are using mod_rewrite to remove the page set this
      * variable so that it is blank.
+     *
+     * @var string
      */
-    public string $indexPage = ''; // set it to 'index.php' if you are not using mod_rewrite which, however, is unlikely
+    public $indexPage = ''; // = 'index.php';
 
     /**
      * --------------------------------------------------------------------------
@@ -63,8 +53,10 @@ class App extends BaseConfig
      * 'PATH_INFO'      Uses $_SERVER['PATH_INFO']
      *
      * WARNING: If you set this to 'PATH_INFO', URIs will always be URL-decoded!
+     *
+     * @var string
      */
-    public string $uriProtocol = 'REQUEST_URI';
+    public $uriProtocol = 'REQUEST_URI';
 
     /**
      * --------------------------------------------------------------------------
@@ -75,8 +67,10 @@ class App extends BaseConfig
      * is viewing the site from. It affects the language strings and other
      * strings (like currency markers, numbers, etc), that your program
      * should run under for this request.
+     *
+     * @var string
      */
-    public string $defaultLocale = 'en';
+    public $defaultLocale = 'en';
 
     /**
      * --------------------------------------------------------------------------
@@ -87,8 +81,10 @@ class App extends BaseConfig
      * language to use based on the value of the Accept-Language header.
      *
      * If false, no automatic detection will be performed.
+     *
+     * @var bool
      */
-    public bool $negotiateLocale = false;
+    public $negotiateLocale = false;
 
     /**
      * --------------------------------------------------------------------------
@@ -101,7 +97,7 @@ class App extends BaseConfig
      *
      * @var string[]
      */
-    public array $supportedLocales = ['en'];
+    public $supportedLocales = ['en'];
 
     /**
      * --------------------------------------------------------------------------
@@ -110,8 +106,10 @@ class App extends BaseConfig
      *
      * The default timezone that will be used in your application to display
      * dates with the date helper, and can be retrieved through app_timezone()
+     *
+     * @var string
      */
-    public string $appTimezone = 'UTC';
+    public $appTimezone = 'Asia/Jakarta';
 
     /**
      * --------------------------------------------------------------------------
@@ -122,8 +120,10 @@ class App extends BaseConfig
      * that require a character set to be provided.
      *
      * @see http://php.net/htmlspecialchars for a list of supported charsets.
+     *
+     * @var string
      */
-    public string $charset = 'UTF-8';
+    public $charset = 'UTF-8';
 
     /**
      * --------------------------------------------------------------------------
@@ -134,8 +134,10 @@ class App extends BaseConfig
      * made via a secure connection (HTTPS). If the incoming request is not
      * secure, the user will be redirected to a secure version of the page
      * and the HTTP Strict Transport Security header will be set.
+     *
+     * @var bool
      */
-    public bool $forceGlobalSecureRequests = false;
+    public $forceGlobalSecureRequests = false;
 
     /**
      * --------------------------------------------------------------------------
@@ -148,9 +150,9 @@ class App extends BaseConfig
      * - `CodeIgniter\Session\Handlers\MemcachedHandler`
      * - `CodeIgniter\Session\Handlers\RedisHandler`
      *
-     * @deprecated use Config\Session::$driver instead.
+     * @var string
      */
-    public string $sessionDriver = FileHandler::class;
+    public $sessionDriver = FileHandler::class;
 
     /**
      * --------------------------------------------------------------------------
@@ -159,9 +161,9 @@ class App extends BaseConfig
      *
      * The session cookie name, must contain only [0-9a-z_-] characters
      *
-     * @deprecated use Config\Session::$cookieName  instead.
+     * @var string
      */
-    public string $sessionCookieName = 'ci_session';
+    public $sessionCookieName = 'ci_session';
 
     /**
      * --------------------------------------------------------------------------
@@ -171,9 +173,9 @@ class App extends BaseConfig
      * The number of SECONDS you want the session to last.
      * Setting to 0 (zero) means expire when the browser is closed.
      *
-     * @deprecated use Config\Session::$expiration instead.
+     * @var int
      */
-    public int $sessionExpiration = 7200;
+    public $sessionExpiration = 7200;
 
     /**
      * --------------------------------------------------------------------------
@@ -190,9 +192,9 @@ class App extends BaseConfig
      *
      * IMPORTANT: You are REQUIRED to set a valid save path!
      *
-     * @deprecated use Config\Session::$savePath instead.
+     * @var string
      */
-    public string $sessionSavePath = WRITEPATH . 'session';
+    public $sessionSavePath = WRITEPATH . 'session';
 
     /**
      * --------------------------------------------------------------------------
@@ -204,9 +206,9 @@ class App extends BaseConfig
      * WARNING: If you're using the database driver, don't forget to update
      *          your session table's PRIMARY KEY when changing this setting.
      *
-     * @deprecated use Config\Session::$matchIP instead.
+     * @var bool
      */
-    public bool $sessionMatchIP = false;
+    public $sessionMatchIP = false;
 
     /**
      * --------------------------------------------------------------------------
@@ -215,9 +217,9 @@ class App extends BaseConfig
      *
      * How many seconds between CI regenerating the session ID.
      *
-     * @deprecated use Config\Session::$timeToUpdate instead.
+     * @var int
      */
-    public int $sessionTimeToUpdate = 300;
+    public $sessionTimeToUpdate = 300;
 
     /**
      * --------------------------------------------------------------------------
@@ -228,20 +230,9 @@ class App extends BaseConfig
      * when auto-regenerating the session ID. When set to FALSE, the data
      * will be later deleted by the garbage collector.
      *
-     * @deprecated use Config\Session::$regenerateDestroy instead.
+     * @var bool
      */
-    public bool $sessionRegenerateDestroy = false;
-
-    /**
-     * --------------------------------------------------------------------------
-     * Session Database Group
-     * --------------------------------------------------------------------------
-     *
-     * DB Group for the database session.
-     *
-     * @deprecated use Config\Session::$DBGroup instead.
-     */
-    public ?string $sessionDBGroup = null;
+    public $sessionRegenerateDestroy = false;
 
     /**
      * --------------------------------------------------------------------------
@@ -250,9 +241,11 @@ class App extends BaseConfig
      *
      * Set a cookie name prefix if you need to avoid collisions.
      *
+     * @var string
+     *
      * @deprecated use Config\Cookie::$prefix property instead.
      */
-    public string $cookiePrefix = '';
+    public $cookiePrefix = '';
 
     /**
      * --------------------------------------------------------------------------
@@ -261,9 +254,11 @@ class App extends BaseConfig
      *
      * Set to `.your-domain.com` for site-wide cookies.
      *
+     * @var string
+     *
      * @deprecated use Config\Cookie::$domain property instead.
      */
-    public string $cookieDomain = '';
+    public $cookieDomain = '';
 
     /**
      * --------------------------------------------------------------------------
@@ -272,9 +267,11 @@ class App extends BaseConfig
      *
      * Typically will be a forward slash.
      *
+     * @var string
+     *
      * @deprecated use Config\Cookie::$path property instead.
      */
-    public string $cookiePath = '/';
+    public $cookiePath = '/';
 
     /**
      * --------------------------------------------------------------------------
@@ -283,9 +280,11 @@ class App extends BaseConfig
      *
      * Cookie will only be set if a secure HTTPS connection exists.
      *
+     * @var bool
+     *
      * @deprecated use Config\Cookie::$secure property instead.
      */
-    public bool $cookieSecure = false;
+    public $cookieSecure = false;
 
     /**
      * --------------------------------------------------------------------------
@@ -294,9 +293,11 @@ class App extends BaseConfig
      *
      * Cookie will only be accessible via HTTP(S) (no JavaScript).
      *
+     * @var bool
+     *
      * @deprecated use Config\Cookie::$httponly property instead.
      */
-    public bool $cookieHTTPOnly = true;
+    public $cookieHTTPOnly = true;
 
     /**
      * --------------------------------------------------------------------------
@@ -318,9 +319,11 @@ class App extends BaseConfig
      * (empty string) means default SameSite attribute set by browsers (`Lax`)
      * will be set on cookies. If set to `None`, `$cookieSecure` must also be set.
      *
+     * @var string|null
+     *
      * @deprecated use Config\Cookie::$samesite property instead.
      */
-    public ?string $cookieSameSite = 'Lax';
+    public $cookieSameSite = 'Lax';
 
     /**
      * --------------------------------------------------------------------------
@@ -343,7 +346,7 @@ class App extends BaseConfig
      *
      * @var array<string, string>
      */
-    public array $proxyIPs = [];
+    public $proxyIPs = [];
 
     /**
      * --------------------------------------------------------------------------
@@ -353,8 +356,10 @@ class App extends BaseConfig
      * The token name.
      *
      * @deprecated Use `Config\Security` $tokenName property instead of using this property.
+     *
+     * @var string
      */
-    public string $CSRFTokenName = 'csrf_test_name';
+    public $CSRFTokenName = 'csrf_test_name';
 
     /**
      * --------------------------------------------------------------------------
@@ -364,8 +369,10 @@ class App extends BaseConfig
      * The header name.
      *
      * @deprecated Use `Config\Security` $headerName property instead of using this property.
+     *
+     * @var string
      */
-    public string $CSRFHeaderName = 'X-CSRF-TOKEN';
+    public $CSRFHeaderName = 'X-CSRF-TOKEN';
 
     /**
      * --------------------------------------------------------------------------
@@ -375,8 +382,10 @@ class App extends BaseConfig
      * The cookie name.
      *
      * @deprecated Use `Config\Security` $cookieName property instead of using this property.
+     *
+     * @var string
      */
-    public string $CSRFCookieName = 'csrf_cookie_name';
+    public $CSRFCookieName = 'csrf_cookie_name';
 
     /**
      * --------------------------------------------------------------------------
@@ -386,8 +395,10 @@ class App extends BaseConfig
      * The number in seconds the token should expire.
      *
      * @deprecated Use `Config\Security` $expire property instead of using this property.
+     *
+     * @var int
      */
-    public int $CSRFExpire = 7200;
+    public $CSRFExpire = 7200;
 
     /**
      * --------------------------------------------------------------------------
@@ -397,8 +408,10 @@ class App extends BaseConfig
      * Regenerate token on every submission?
      *
      * @deprecated Use `Config\Security` $regenerate property instead of using this property.
+     *
+     * @var bool
      */
-    public bool $CSRFRegenerate = true;
+    public $CSRFRegenerate = true;
 
     /**
      * --------------------------------------------------------------------------
@@ -408,8 +421,10 @@ class App extends BaseConfig
      * Redirect to previous page with error on failure?
      *
      * @deprecated Use `Config\Security` $redirect property instead of using this property.
+     *
+     * @var bool
      */
-    public bool $CSRFRedirect = false;
+    public $CSRFRedirect = true;
 
     /**
      * --------------------------------------------------------------------------
@@ -427,8 +442,10 @@ class App extends BaseConfig
      * @see https://portswigger.net/web-security/csrf/samesite-cookies
      *
      * @deprecated `Config\Cookie` $samesite property is used.
+     *
+     * @var string
      */
-    public string $CSRFSameSite = 'Lax';
+    public $CSRFSameSite = 'Lax';
 
     /**
      * --------------------------------------------------------------------------
@@ -445,6 +462,8 @@ class App extends BaseConfig
      *
      * @see http://www.html5rocks.com/en/tutorials/security/content-security-policy/
      * @see http://www.w3.org/TR/CSP/
+     *
+     * @var bool
      */
-    public bool $CSPEnabled = false;
+    public $CSPEnabled = false;
 }
