@@ -27,7 +27,7 @@
 						<thead>
 							<tr>
 								<th class="text-nowrap"><?= lang('Basic.global.Action') ?></th>
-								<th><?=lang('T30Jurnals.id')?></th>
+								<th><?= lang('T30Jurnals.id') ?></th>
 								<th><?= lang('T30Jurnals.nomor') ?></th>
 								<th><?= lang('T30Jurnals.tanggal') ?></th>
 								<th><?= lang('T30Jurnals.keterangan') ?></th>
@@ -60,84 +60,83 @@
 
 <?=$this->section('additionalInlineJs') ?>
 
-            const lastColNr = $('#tableOfJurnal').find("tr:first th").length - 1;
-            const actionBtns = function(data) {
-                return `<td class="text-right py-0 align-middle">
-                        <div class="btn-group btn-group-sm">
-                            <button class="btn btn-sm btn-warning btn-edit mr-1" data-bs-toggle="modal" data-bs-target="#modalJurnalForm" data-id="${data.id}"><i class="fas fa-pencil-alt"></i></button>
-                            <button class="btn btn-sm btn-danger btn-delete ml-1" data-id="${data.id}"><i class="fas fa-trash"></i></button>
-                        </div>
-                        </td>`;
-            };
-            theTable = $('#tableOfJurnal').DataTable({
-                processing: true,
-                serverSide: true,
-                autoWidth: true,
-                responsive: true,
-                scrollX: true,
-                lengthMenu: [ 5, 10, 25, 50, 75, 100, 250, 500, 1000, 2500 ],
-                pageLength: 10,
-                lengthChange: true,
-                "dom": 'lfrtipB', // 'lfBrtip', // you can try different layout combinations by uncommenting one or the other
-		// "dom": '<"top"lf><"clear">rt<"bottom"ipB><"clear">',  // remember to comment this line if you uncomment the above
-		"buttons": [
-			'copy', 'csv', 'excel', 'print', {
-				extend: 'pdfHtml5',
-				orientation: 'landscape',
-				pageSize: 'A4'
-			}
-		],
-                stateSave: true,
-                order: [[1, 'asc']],
-                language: {
-                    url: "/assets/dt/<?= config('Basics')->languages[$currentLocale] ?? config('Basics')->i18n ?>.json"
-                },
-                ajax : $.fn.dataTable.pipeline( {
-                    url: '<?= route_to('dataTableOfJurnal') ?>',
-                    method: 'POST',
-                    headers: {'X-Requested-With': 'XMLHttpRequest'},
-                    async: true,
-                }),
-                columnDefs: [
-                    {
-                        orderable: false,
-                        searchable: false,
-                        targets: [0,lastColNr]
-                    }
-                ],
-                columns : [
-                    { 'data': actionBtns },
-					{ 'data': 'id' },
-					{ 'data': 'nomor' },
-					{ 'data': 'tanggal' },
-					{ 'data': 'keterangan' },
-                    { 'data': actionBtns }
-                ]
-            });
+const lastColNr = $('#tableOfJurnal').find("tr:first th").length - 1;
+const actionBtns = function(data) {
+    return `<td class="text-right py-0 align-middle">
+            <div class="btn-group btn-group-sm">
+                <button class="btn btn-sm btn-warning btn-edit mr-1" data-bs-toggle="modal" data-bs-target="#modalJurnalForm" data-id="${data.id}"><i class="fas fa-pencil-alt"></i></button>
+                <button class="btn btn-sm btn-danger btn-delete ml-1" data-id="${data.id}"><i class="fas fa-trash"></i></button>
+            </div>
+            </td>`;
+};
+theTable = $('#tableOfJurnal').DataTable({
+    processing: true,
+    serverSide: true,
+    autoWidth: true,
+    responsive: true,
+    scrollX: true,
+    lengthMenu: [ 5, 10, 25, 50, 75, 100, 250, 500, 1000, 2500 ],
+    pageLength: 10,
+    lengthChange: true,
+    "dom": 'lfrtipB', // 'lfBrtip', // you can try different layout combinations by uncommenting one or the other
+	// "dom": '<"top"lf><"clear">rt<"bottom"ipB><"clear">',  // remember to comment this line if you uncomment the above
+	"buttons": [
+		'copy', 'csv', 'excel', 'print', {
+			extend: 'pdfHtml5',
+			orientation: 'landscape',
+			pageSize: 'A4'
+		}
+	],
+    stateSave: true,
+    order: [[1, 'asc']],
+    language: {
+        url: "/assets/dt/<?= config('Basics')->languages[$currentLocale] ?? config('Basics')->i18n ?>.json"
+    },
+    ajax : $.fn.dataTable.pipeline( {
+        url: '<?= route_to('dataTableOfJurnal') ?>',
+        method: 'POST',
+        headers: {'X-Requested-With': 'XMLHttpRequest'},
+        async: true,
+    }),
+    columnDefs: [
+        {
+            orderable: false,
+            searchable: false,
+            targets: [0,lastColNr]
+        }
+    ],
+    columns : [
+        { 'data': actionBtns },
+		{ 'data': 'id' },
+		{ 'data': 'nomor' },
+		{ 'data': 'tanggal' },
+		{ 'data': 'keterangan' },
+        { 'data': actionBtns }
+    ]
+});
 
 
-        theTable.on( 'draw.dt', function () {
+theTable.on( 'draw.dt', function () {
+    const dateCols = [3];
+    const shortDateFormat = '<?= convertPhpDateToMomentFormat('d-m-Y')?>';
+    const dateTimeFormat = '<?= convertPhpDateToMomentFormat('d-m-Y H:i')?>';
 
-                const dateCols = [3];
-            const shortDateFormat = '<?= convertPhpDateToMomentFormat('d-m-Y')?>';
-            const dateTimeFormat = '<?= convertPhpDateToMomentFormat('d-m-Y H:i')?>';
-
-            for (let coln of dateCols) {
-                theTable.column(coln, { page: 'current' }).nodes().each( function (cell, i) {
-                    const datestr = cell.innerHTML;
-                    const dateStrLen = datestr.toString().trim().length;
-                    if (dateStrLen > 0) {
-                        let dateTimeParts= datestr.split(/[- :]/); // regular expression split that creates array with: year, month, day, hour, minutes, seconds values
-                        dateTimeParts[1]--; // monthIndex begins with 0 for January and ends with 11 for December so we need to decrement by one
-                        const d = new Date(...dateTimeParts); // new Date(datestr);
-                        const md = moment(d);
-                        const usingThisFormat = dateStrLen > 11 ? dateTimeFormat : shortDateFormat;
-                        const formattedDateStr = md.format(usingThisFormat);
-                        cell.innerHTML = formattedDateStr;
-                    }
-                });
+    for (let coln of dateCols) {
+        theTable.column(coln, { page: 'current' }).nodes().each( function (cell, i) {
+            const datestr = cell.innerHTML;
+            const dateStrLen = datestr.toString().trim().length;
+            if (dateStrLen > 0) {
+                let dateTimeParts= datestr.split(/[- :]/); // regular expression split that creates array with: year, month, day, hour, minutes, seconds values
+                dateTimeParts[1]--; // monthIndex begins with 0 for January and ends with 11 for December so we need to decrement by one
+                const d = new Date(...dateTimeParts); // new Date(datestr);
+                const md = moment(d);
+                const usingThisFormat = dateStrLen > 11 ? dateTimeFormat : shortDateFormat;
+                const formattedDateStr = md.format(usingThisFormat);
+                cell.innerHTML = formattedDateStr;
             }
-    });
+        });
+    }
+});
 
 $(document).on('click', '#btnAddRecord', () => {
     $('#modalJurnalLabel').html("Add a New Jurnal");
